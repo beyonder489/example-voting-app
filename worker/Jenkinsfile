@@ -51,3 +51,4 @@ pipeline {
        echo "Pipeline for worker is complete..."
    }
 }
+}
