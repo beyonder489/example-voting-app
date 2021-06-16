@@ -209,7 +209,8 @@ pipeline {
          }
        }
          
-     }  
+     }
+ }  
 
 
 
@@ -218,6 +219,5 @@ pipeline {
        echo "Pipeline for mono-pipe is complete..."
    }
  }
-
 
 }
