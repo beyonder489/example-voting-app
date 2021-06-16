@@ -18,6 +18,12 @@ services:
     networks:
       - instavote
 
+
+  redis:
+    image: redis:alpine
+    networks:
+      - instavote
+
   result:
     image: beyonder489/result:latest
     ports:
@@ -26,3 +32,6 @@ services:
       - db
     networks:
       - instavote
+
+
+

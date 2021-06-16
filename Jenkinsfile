@@ -132,10 +132,6 @@ pipeline {
 
      stage('result-docker-package'){
        agent any
-       when{
-         changeset "**/result/**"
-         branch 'master'
-       }
        steps{
          echo 'Packaging result app with Docker'
          script{
