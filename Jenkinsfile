@@ -136,7 +136,7 @@ pipeline {
          echo 'Packaging result app with Docker'
          script{
            docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-               def workerImage = docker.build("beyonder489/result:v${env.BUILD_ID}", "./result")
+               def workerImage = docker.build("beyonder489/result:v5, "./result")
                workerImage.push()
                workerImage.push("${env.BRANCH_NAME}")
            }
