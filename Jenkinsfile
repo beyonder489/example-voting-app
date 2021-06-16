@@ -171,9 +171,6 @@ pipeline {
             args '--user root'
          }
        }
-       when{
-         changeset "**/vote/**"
-       }
        steps{
          echo 'Running Unit Tets on vote app..'
          dir('vote'){
@@ -185,24 +182,22 @@ pipeline {
 
 
 
-     stage('vote-docker-package'){
-       agent any
-       when{
-         changeset "**/vote/**"
-         branch 'master'
-       }
-       steps{
-         echo 'Packaging vote app with Docker'
-         script{
-           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-               def workerImage = docker.build("beyonder489/vote:v${env.BUILD_ID}", "./vote")
-               workerImage.push()
-               workerImage.push("${env.BRANCH_NAME}")
-           }
-         }
-       }
-         
-     }
+#    stage('vote-docker-package'){
+#      agent any
+#       when{
+#       }
+#       steps{
+#         echo 'Packaging vote app with Docker'
+#         script{
+#           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
+#               def workerImage = docker.build("beyonder489/vote:v${env.BUILD_ID}", "./vote")
+#               workerImage.push()
+#               workerImage.push("${env.BRANCH_NAME}")
+#           }
+#         }
+#       }
+#         
+#     }
  }  
 
 
