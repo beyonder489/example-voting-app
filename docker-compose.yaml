@@ -1,0 +1,28 @@
+version: "3.7"
+
+volumes:
+  db-data:
+
+
+networks:
+  instavote:
+    driver: bridge
+
+services: 
+  db:
+    image: postgres:9.4
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - instavote
+
+  result:
+    image: beyonder489/result:latest
+    ports:
+      - 5000:4000
+    depends_on:
+      - db
+    networks:
+      - instavote
