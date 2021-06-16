@@ -154,9 +154,6 @@ pipeline {
             args '--user root'
          }
        }
-       when{
-           changeset "**/vote/**"
-       }
        steps{
          echo 'Compiling worker app..'
          dir('vote'){
