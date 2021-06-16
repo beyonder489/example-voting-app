@@ -1,5 +1,5 @@
 
-pipeline {
+pipeline{
   
    agent none
 
@@ -203,10 +203,4 @@ pipeline {
 
 
 
- post{
-   always{
-       echo "Pipeline for mono-pipe is complete..."
-   }
  }
-
-}
